@@ -6,14 +6,20 @@ import ListScreen from "./src/screens/ListScreen";
 import DetailScreen from "./src/screens/DetailScreen";
 
 const Stack = createNativeStackNavigator();
+const isAuthenticated = true;
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="List" component={ListScreen} />
-        <Stack.Screen name="Detail" component={DetailScreen} />
+        {isAuthenticated ? (
+          <>
+            <Stack.Screen name="List" component={ListScreen} />
+            <Stack.Screen name="Detail" component={DetailScreen} />
+          </>
+        ) : (
+          <Stack.Screen name="Login" component={LoginScreen} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
