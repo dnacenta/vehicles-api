@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VehicleCell /> matches snapshot 1`] = `
+<RNGestureHandlerButton
+  activeOpacity={0.105}
+  collapsable={false}
+  delayLongPress={600}
+  handlerTag={1}
+  handlerType="NativeViewGestureHandler"
+  onActiveStateChange={[Function]}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  onPress={[Function]}
+  style={{}}
+  underlayColor="black"
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "black",
+        "borderBottomLeftRadius": undefined,
+        "borderBottomRightRadius": undefined,
+        "borderRadius": undefined,
+        "borderTopLeftRadius": undefined,
+        "borderTopRightRadius": undefined,
+        "bottom": 0,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "margin": 8,
+        "padding": 8,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#ced6e0",
+          "borderRadius": 4,
+          "height": 80,
+          "width": 80,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "http://loremflickr.com/640/640/transport?70161",
+          }
+        }
+        style={
+          {
+            "borderRadius": 4,
+            "height": 80,
+            "width": 80,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "flex": 0.75,
+          "marginLeft": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontSize": 18,
+            "fontWeight": "600",
+          }
+        }
+      >
+        lorem
+      </Text>
+    </View>
+  </View>
+</RNGestureHandlerButton>
+`;
