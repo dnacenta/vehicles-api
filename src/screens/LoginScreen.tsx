@@ -1,16 +1,16 @@
-import { useContext, useState } from "react";
-import { Text, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Input, Button } from "@rneui/themed";
-import { Context as AuthContext } from "../context/AuthContext";
+import {useContext, useState} from 'react';
+import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Input, Button} from '@rneui/themed';
+import {Context as AuthContext} from '../context/AuthContext';
 
 const LoginScreen = () => {
   const {
-    state: { errorMessage },
+    state: {errorMessage},
     login,
   } = useContext(AuthContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,6 +19,7 @@ const LoginScreen = () => {
         onChangeText={setUsername}
         placeholder="Username"
         accessibilityLabel="Username"
+        autoCapitalize="none"
         style={styles.input}
       />
       <Input
@@ -26,6 +27,7 @@ const LoginScreen = () => {
         onChangeText={setPassword}
         placeholder="Password"
         accessibilityLabel="Password"
+        autoCapitalize="none"
         style={styles.input}
         secureTextEntry
       />
@@ -34,7 +36,7 @@ const LoginScreen = () => {
       ) : null}
       <Button
         onPress={() => {
-          login({ username, password });
+          login({username, password});
         }}
         title="Log In"
         accessibilityLabel="log in"
@@ -47,15 +49,15 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   input: {
     marginHorizontal: 8,
   },
   errorMessage: {
     fontSize: 18,
-    color: "red",
+    color: '#FE7575',
     margin: 8,
   },
   button: {

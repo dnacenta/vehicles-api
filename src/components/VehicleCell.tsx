@@ -1,5 +1,5 @@
-import { Text, View, Image, StyleSheet } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
+import {Text, View, Image, StyleSheet} from 'react-native';
+import {RectButton} from 'react-native-gesture-handler';
 
 type VehicleCellProps = {
   onPress(): void;
@@ -7,12 +7,15 @@ type VehicleCellProps = {
   name: string;
 };
 
-const VehicleCell = ({ onPress, image, name }: VehicleCellProps) => {
+const VehicleCell = ({onPress, image, name}: VehicleCellProps) => {
   return (
     <RectButton onPress={() => onPress()}>
       <View style={styles.cellContainer}>
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={{ uri: image }} />
+          <Image
+            style={styles.image}
+            source={{uri: image}}
+          />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{name}</Text>
@@ -25,23 +28,27 @@ const VehicleCell = ({ onPress, image, name }: VehicleCellProps) => {
 const styles = StyleSheet.create({
   cellContainer: {
     flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     margin: 8,
-    backgroundColor: "white",
+    backgroundColor: '#FDFE9E',
     padding: 8,
     borderRadius: 4,
+    borderColor: '#14544E',
+    borderWidth: 1,
   },
   imageContainer: {
     width: 80,
     height: 80,
     borderRadius: 4,
-    backgroundColor: "#ced6e0",
+    backgroundColor: '#ffffff',
   },
   image: {
     width: 80,
     height: 80,
     borderRadius: 4,
+    borderColor: '#14544E',
+    borderWidth: 1,
   },
   textContainer: {
     flex: 3 / 4,
@@ -49,7 +56,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });
 

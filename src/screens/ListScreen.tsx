@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import { FlatList } from "react-native";
-import vehiclesApi from "../api/vehicles";
-import { SafeAreaView } from "react-native-safe-area-context";
-import VehicleCell from "../components/VehicleCell";
+import {useEffect, useState} from 'react';
+import {FlatList, StyleSheet} from 'react-native';
+import vehiclesApi from '../api/vehicles';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import VehicleCell from '../components/VehicleCell';
 
-const ListScreen = ({ navigation }) => {
+const ListScreen = ({navigation}) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
     const getVehiclesList = async () => {
-      const response = await vehiclesApi.get("/vehicle");
+      const response = await vehiclesApi.get('/vehicle');
       setList(response.data);
     };
 
@@ -17,13 +17,13 @@ const ListScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.mainContainer}>
       <FlatList
-        keyExtractor={(vehicle) => vehicle.id}
+        keyExtractor={vehicle => vehicle.id}
         data={list}
-        renderItem={({ item }) => {
+        renderItem={({item}) => {
           const onPress = () =>
-            navigation.navigate("Detail", { vehicleId: item.id });
+            navigation.navigate('Detail', {vehicleId: item.id});
 
           return (
             <VehicleCell
@@ -37,5 +37,11 @@ const ListScreen = ({ navigation }) => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    backgroundColor: '#ffffff',
+  },
+});
 
 export default ListScreen;

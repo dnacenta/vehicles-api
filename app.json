@@ -31,6 +31,9 @@
         "projectId": "661bee3d-4eff-4f5f-8e00-a3e7f44bed42"
       }
     },
-    "owner": "dnacenta"
+    "owner": "dnacenta",
+    "plugins": [
+      "expo-secure-store"
+    ]
   }
 }

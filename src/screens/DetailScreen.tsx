@@ -1,8 +1,8 @@
-import { View, Text, Image, StyleSheet } from "react-native";
-import { useEffect, useState } from "react";
-import vehiclesApi from "../api/vehicles";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Button } from "@rneui/themed";
+import {View, Text, Image, StyleSheet} from 'react-native';
+import {useEffect, useState} from 'react';
+import vehiclesApi from '../api/vehicles';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Button} from '@rneui/themed';
 
 type DetailsProps = {
   id: number;
@@ -14,7 +14,7 @@ type DetailsProps = {
   vin: string;
 };
 
-const DetailScreen = ({ route, navigation }) => {
+const DetailScreen = ({route, navigation}) => {
   const [vehicleDetails, setVehicleDetails] = useState<DetailsProps>({
     id: null,
     brand: null,
@@ -28,7 +28,7 @@ const DetailScreen = ({ route, navigation }) => {
   useEffect(() => {
     const getVehicleDetails = async () => {
       const response = await vehiclesApi.get(
-        `/vehicle/${route.params.vehicleId}`
+        `/vehicle/${route.params.vehicleId}`,
       );
 
       setVehicleDetails(response.data);
@@ -39,28 +39,33 @@ const DetailScreen = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View style={styles.imageContainer}>
-        <Image style={styles.image} source={{ uri: vehicleDetails.image }} />
-      </View>
-      <View style={styles.textContainer}>
-        <View style={{ alignItems: "center" }}>
-          <Text style={{ fontSize: 18, fontWeight: "600" }}>
-            {vehicleDetails.brand} {vehicleDetails.model}
-          </Text>
+      <View style={styles.detailsBody}>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={{uri: vehicleDetails.image}}
+          />
         </View>
-        <View style={styles.detailsContainer}>
-          <Text>Brand: {vehicleDetails.brand}</Text>
-          <Text>Model: {vehicleDetails.model}</Text>
-          <Text>Fuel: {vehicleDetails.fuel}</Text>
-          <Text>Type: {vehicleDetails.type}</Text>
-          <Text>VIN: {vehicleDetails.vin}</Text>
+        <View style={styles.textContainer}>
+          <View style={{alignItems: 'center'}}>
+            <Text style={styles.title}>
+              {vehicleDetails.brand} {vehicleDetails.model}
+            </Text>
+          </View>
+          <View style={styles.detailsContainer}>
+            <Text style={styles.text}>Brand: {vehicleDetails.brand}</Text>
+            <Text style={styles.text}>Model: {vehicleDetails.model}</Text>
+            <Text style={styles.text}>Fuel: {vehicleDetails.fuel}</Text>
+            <Text style={styles.text}>Type: {vehicleDetails.type}</Text>
+            <Text style={styles.text}>VIN: {vehicleDetails.vin}</Text>
+          </View>
         </View>
       </View>
       <Button
-        style={{ marginTop: 8, width: 160 }}
+        style={styles.button}
         title="Back to list"
         onPress={() => {
-          navigation.navigate("List");
+          navigation.navigate('List');
         }}
       />
     </SafeAreaView>
@@ -70,35 +75,46 @@ const DetailScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    marginTop: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ffffff',
   },
   imageContainer: {
-    width: 220,
-    height: 220,
-    borderTopEndRadius: 4,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ffffff",
+    width: 300,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   textContainer: {
     paddingTop: 8,
-    backgroundColor: "white",
     height: 300,
     width: 300,
+  },
+  detailsBody: {
     borderRadius: 4,
+    backgroundColor: '#14544E',
   },
   detailsContainer: {
     flex: 1,
-    alignContent: "flex-start",
-    justifyContent: "space-evenly",
+    alignContent: 'flex-start',
+    justifyContent: 'space-evenly',
     marginLeft: 16,
   },
   image: {
-    width: 200,
+    width: '100%',
     height: 200,
     borderRadius: 4,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
+  text: {
+    color: '#ffffff',
+  },
+  button: {
+    marginTop: 8,
+    width: 160,
   },
 });
 

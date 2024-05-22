@@ -1,15 +1,18 @@
-import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { Provider as AuthProvider } from "./src/context/AuthContext";
-import AuthNavigator from "./src/navigation/AuthNavigator";
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {Provider as AuthProvider} from './src/context/AuthContext';
+import AuthNavigator from './src/navigation/AuthNavigator';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <NavigationContainer>
-        <AuthNavigator />
-      </NavigationContainer>
-    </AuthProvider>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <AuthProvider>
+        <NavigationContainer>
+          <AuthNavigator />
+        </NavigationContainer>
+      </AuthProvider>
+    </GestureHandlerRootView>
   );
 };
 
